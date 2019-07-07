@@ -3,9 +3,11 @@ import axios from 'axios'
 export default {
   getDetails: async ({ commit, dispatch, getters }, payload) => {
     const { data: result } = await axios.get('https://api.myjson.com/bins/zw5av')
-    const trackIndex = payload | Math.floor(Math.random() * result.length)
+    console.log(payload)
+    // | Math.floor(Math.random() * result.length)
+    const trackIndex = payload
     commit('SET_TRAKING_DETAILS', result[trackIndex])
-    if (getters.details.driver && getters.details.status !== 'Pedido coletado') {
+    if (getters.details.driver && getters.details.status !== 'Motorista em trânsito') {
       dispatch('estimateArrival')
     }
   },

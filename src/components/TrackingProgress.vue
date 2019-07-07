@@ -32,7 +32,15 @@ export default {
   },
   computed: {
     progress () {
-      return 67
+      if (this.tracking.status === 'Solicitação') {
+        return 0
+      } else if (this.tracking.status === 'Aguardando Coleta') {
+        return 34
+      } else if (this.tracking.status === 'Motorista em trânsito') {
+        return 67
+      } else {
+        return 100
+      }
     }
   }
 }

@@ -21,10 +21,10 @@
       <v-flex xs12>
         <v-divider></v-divider>
       </v-flex>
-      <v-flex xs6>
+      <v-flex xs12 sm6 v-if="details.status !== 'Pedido coletado'">
         <TrackingMap :tracking="details" />
       </v-flex>
-      <v-flex xs6>
+      <v-flex xs12 sm6>
         <TrackingHistory :tracking="details" />
       </v-flex>
     </v-layout>

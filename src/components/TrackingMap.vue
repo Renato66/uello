@@ -46,13 +46,20 @@ export default {
   },
   methods: {
     loadMap () {
-      const driver = { lat: this.tracking.driver.geolocation.latitude, lng: this.tracking.driver.geolocation.longitude }
-      const address = { lat: this.tracking.address.geolocation.latitude, lng: this.tracking.driver.geolocation.longitude }
-      this.map = new window.google.maps.Map(this.$refs.map, {
-        center: driver,
-        zoom: 15
-      })
-      this.driverMarker = new window.google.maps.Marker({ position: driver, map: this.map, icon: 'https://uello.netlify.com/img/delivery-truck.png' })
+      const address = { lat: this.tracking.address.geolocation.latitude, lng: this.tracking.address.geolocation.longitude }
+      if (this.tracking.driver) {
+        const driver = { lat: this.tracking.driver.geolocation.latitude, lng: this.tracking.driver.geolocation.longitude }
+        this.map = new window.google.maps.Map(this.$refs.map, {
+          center: driver,
+          zoom: 14
+        })
+        this.driverMarker = new window.google.maps.Marker({ position: driver, map: this.map, icon: 'https://uello.netlify.com/img/delivery-truck.png' })
+      } else {
+        this.map = new window.google.maps.Map(this.$refs.map, {
+          center: address,
+          zoom: 17
+        })
+      }
       this.addressMarker = new window.google.maps.Marker({ position: address, map: this.map, icon: 'https://uello.netlify.com/img/flag.png' })
     },
     loadScript () {
