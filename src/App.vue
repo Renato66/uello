@@ -7,17 +7,21 @@
         </a>
       </v-flex>
       <v-spacer></v-spacer>
-       <v-avatar
-          size="36px"
-        >
-          <img
-            src="https://www.gravatar.com/avatar/44d075eb0dc6e9d7f3528ac2de5c24c3?size=50"
-            alt="Avatar"
+      <a href="https://renato66.github.io" target="_blank">
+        <v-avatar
+            size="36px"
           >
-       </v-avatar>
-       <div class="ml-2 text-uppercase hidden-xs-only">
-        Renato Vicente Frison
-       </div>
+            <img
+              src="https://www.gravatar.com/avatar/44d075eb0dc6e9d7f3528ac2de5c24c3?size=50"
+              alt="Avatar"
+            >
+        </v-avatar>
+      </a>
+      <a href="https://renato66.github.io" target="_blank" class="white--text" style="text-decoration:none;">
+        <div class="ml-2 text-uppercase hidden-xs-only">
+          Renato Vicente Frison
+        </div>
+      </a>
     </v-toolbar>
     <v-content>
       <v-fade-transition leave-absolute>

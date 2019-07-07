@@ -5,7 +5,7 @@ export default {
     const { data: result } = await axios.get('https://api.myjson.com/bins/zw5av')
     const trackIndex = payload === undefined ? Math.floor(Math.random() * result.length) : payload
     commit('SET_TRAKING_DETAILS', result[trackIndex])
-    if (getters.details.driver && getters.details.status !== 'Motorista em trânsito') {
+    if (getters.details.driver && getters.details.status === 'Motorista em trânsito') {
       dispatch('estimateArrival')
     }
   },
