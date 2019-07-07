@@ -2,7 +2,9 @@
   <v-app>
     <v-toolbar app dark class="elevation-0 nav primary">
       <v-flex class="nav__logo">
-        <img src="https://www.uello.com.br/assets/img/logo-uello-branco.png" alt="uello white logo">
+        <a href="https://www.uello.com.br" target="_blank">
+          <img src="https://www.uello.com.br/assets/img/logo-uello-branco.png" alt="uello white logo">
+        </a>
       </v-flex>
       <v-spacer></v-spacer>
        <v-avatar
@@ -41,7 +43,8 @@ export default {
 .nav
   &__logo
     height 38px
-    >img
-      height: 38px
-      display: block
+    >a
+      >img
+        height: 38px
+        display: block
 </style>

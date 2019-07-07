@@ -1,14 +1,12 @@
 <template>
   <v-container>
-    <v-layout align-center>
+    <v-layout align-center mb-4 mt-3>
       <v-flex shrink>
         <h1 class="display-1">Status da entrega</h1>
       </v-flex>
       <v-spacer></v-spacer>
       <v-flex shrink>
-        <v-btn flat outline color="primary" class="text-none">
-          Ajuda
-        </v-btn>
+        <HelpButton @reload="loadTracking($event)" />
       </v-flex>
     </v-layout>
     <v-layout row wrap class="grey lighten-3 px-3 py-4" v-if="!loading && !error">
@@ -51,13 +49,15 @@ import TrackingHeader from '@/components/TrackingHeader'
 import TrackingProgress from '@/components/TrackingProgress'
 import TrackingHistory from '@/components/TrackingHistory'
 import TrackingMap from '@/components/TrackingMap'
+import HelpButton from '@/components/HelpButton'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     TrackingHeader,
     TrackingProgress,
     TrackingMap,
-    TrackingHistory
+    TrackingHistory,
+    HelpButton
   },
   data () {
     return {
@@ -67,21 +67,23 @@ export default {
     }
   },
   methods: {
-    ...mapActions('tracking', ['getDetails'])
+    ...mapActions('tracking', ['getDetails']),
+    async loadTracking (index) {
+      this.loading = true
+      try {
+        await this.getDetails(index)
+      } catch (err) {
+        console.log(err)
+        this.error = true
+      }
+      this.loading = false
+    }
   },
   computed: {
     ...mapGetters('tracking', ['details'])
   },
   async mounted () {
-    this.loading = true
-    console.log('oi')
-    try {
-      await this.getDetails(this.$route.params.index)
-    } catch (err) {
-      console.log(err)
-      this.error = true
-    }
-    this.loading = false
+    await this.loadTracking(this.$route.params.index)
   }
 }
 </script>
