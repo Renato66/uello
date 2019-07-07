@@ -22,7 +22,7 @@
         <v-divider></v-divider>
       </v-flex>
       <v-flex xs6>
-        <!-- mapa  -->
+        <TrackingMap :tracking="details" />
       </v-flex>
       <v-flex xs6>
         <TrackingHistory :tracking="details" />
@@ -50,11 +50,13 @@
 import TrackingHeader from '@/components/TrackingHeader'
 import TrackingProgress from '@/components/TrackingProgress'
 import TrackingHistory from '@/components/TrackingHistory'
+import TrackingMap from '@/components/TrackingMap'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     TrackingHeader,
     TrackingProgress,
+    TrackingMap,
     TrackingHistory
   },
   data () {
