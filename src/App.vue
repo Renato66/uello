@@ -1,38 +1,47 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
+    <v-toolbar app dark class="elevation-0 nav primary">
+      <v-flex class="nav__logo">
+        <img src="https://www.uello.com.br/assets/img/logo-uello-branco.png" alt="uello white logo">
+      </v-flex>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+       <v-avatar
+          size="36px"
+        >
+          <img
+            src="https://www.gravatar.com/avatar/44d075eb0dc6e9d7f3528ac2de5c24c3?size=50"
+            alt="Avatar"
+          >
+       </v-avatar>
+       <div class="ml-2 text-uppercase hidden-xs-only">
+        Renato Vicente Frison
+       </div>
     </v-toolbar>
-
     <v-content>
-      <HelloWorld/>
+      <v-fade-transition leave-absolute>
+        <router-view></router-view>
+      </v-fade-transition>
     </v-content>
+    <Snackbar />
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+    Snackbar: () => import('@/components/Snackbar')
   }
 }
 </script>
+
+<style lang="stylus">
+.v-btn
+  border-radius 6px
+.nav
+  &__logo
+    height 38px
+    >img
+      height: 38px
+      display: block
+</style>
