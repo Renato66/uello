@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
   getDetails: async ({ commit, dispatch, getters }, payload) => {
-    const { data: result } = await axios.get('https://api.myjson.com/bins/zw5av')
+    const { data: result } = await axios.get('./base_data.json')
     const trackIndex = payload === undefined ? Math.floor(Math.random() * result.length) : payload
     commit('SET_TRAKING_DETAILS', result[trackIndex])
     if (getters.details.driver && getters.details.status === 'Motorista em trânsito') {
@@ -16,7 +16,10 @@ export default {
     //   origins,
     //   destinations
     // })
-    const { data: result } = await axios.get('https://api.myjson.com/bins/n2oq3')
-    commit('SET_TRAKING_ESTIMATE_ARRIVAL', result.rows[0].elements[0])
+    commit('SET_TRAKING_ESTIMATE_ARRIVAL', {
+      duration: {
+        text: 'Em 1 hora'
+      }
+    })
   }
 }
