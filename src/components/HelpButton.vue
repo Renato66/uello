@@ -30,7 +30,7 @@
             <span class="link primary--text" @click="updateTracking(3)">Pedido coletado</span>
           </p>
           <p class="mt-3">
-            Veja o mockup do designer <a href="img/Tracking.png"  target="_blank">aqui</a> e a massa de dados <a href="https://api.myjson.com/bins/zw5av" target="_blank">aqui</a>
+            Veja o mockup do designer <a href="img/Tracking.png"  target="_blank">aqui</a> e a massa de dados <a href="/base_data.json" target="_blank">aqui</a>
           </p>
           <div class="elevation-1 pa-3">
             <div v-for="paragraph in testDescription" :key="paragraph.header">

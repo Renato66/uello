@@ -26,7 +26,7 @@
 
 [mockup](https://uello.netlify.com/img/Tracking.png)
 e 
-[massa de dados](https://api.myjson.com/bins/zw5av)
+[massa de dados](./public/base_data.json)
 
 ## Project setup
 ```
