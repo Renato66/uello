@@ -3,7 +3,7 @@
     <v-toolbar app dark class="elevation-0 nav primary" style="z-index:4">
       <v-flex class="nav__logo" shrink>
         <a href="https://www.uello.com.br" target="_blank">
-          <img src="https://www.uello.com.br/assets/img/logo-uello-branco.png" alt="uello white logo">
+          <img src="/img/ou.png" alt="uello white logo">
         </a>
       </v-flex>
       <v-spacer></v-spacer>
